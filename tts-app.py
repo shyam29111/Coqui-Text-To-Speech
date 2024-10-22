@@ -1,16 +1,23 @@
 # TODO#1 - Importing Required Libraries
 
+
 # TODO#2 - Loading the Coqui TTS Model
+
 
 # TODO#3 - Defining Voice Selection
 
+
 # TODO#4 - Defining Localization Options
+
 
 # TODO#5 - Defining Variables to Hold Selected Voice and Localization
 
+
 # TODO#6 - Managing Outputs
 
+
 # TODO#7 - Implementing the Trim Function.
+
 
 # Main Speech Synthesis Function
 def generate_speech_with_timestamps(text, speaker, language):
@@ -20,11 +27,15 @@ def generate_speech_with_timestamps(text, speaker, language):
 
     # TODO#8 - Implementing the Main TTS Function
 
+
     # TODO#9 - Managing Duration and Tracking Variables
+
 
     # TODO#10 - Extracting Audio Information
 
+
     # TODO#11 - Return Audio Information
+
 
 # Waveform Function
 def generate_waveform():
@@ -83,22 +94,28 @@ def generate_speech(text, speaker, language):
 def setup_interface():
     with gr.Blocks() as app:
         # TODO#12 - Adding Title and Description
-        
+
+
         with gr.Row():
             with gr.Column():
                 # TODO#13 - Creating Text Input and Selection Options
 
+
+                with gr.Row():
+                    # TODO#14 - Creating Text Input and Selection Options
+
+
             with gr.Column():
-                # TODO#14 - Displaying Data Information and Status
+                # TODO#15 - Displaying Data Information and Status
 
 
         with gr.Row():
             with gr.Column():
-                # TODO#15 - Adding Audio Output and "Generate Speech" Button
+                # TODO#16 - Adding Audio Output and "Generate Speech" Button
 
 
             with gr.Column():
-                # TODO#16 - Adding Waveform Display and "Generate Waveform" Button
+                # TODO#17 - Adding Waveform Display and "Generate Waveform" Button
 
 
         generate_button.click(
@@ -114,4 +131,4 @@ def setup_interface():
 
     return app
 
-# TODO#17 - Launching the App
+# TODO#18 - Launching the App
