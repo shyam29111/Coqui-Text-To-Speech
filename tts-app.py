@@ -1,27 +1,16 @@
-# TODO#1
+# TODO#1 - Importing Required Libraries
 
+# TODO#2 - Loading the Coqui TTS Model
 
-# TODO#2
-# Load the TTS model
+# TODO#3 - Defining Voice Selection
 
+# TODO#4 - Defining Localization Options
 
-# TODO#3
-# Limit available speakers to 3 females and 3 males
+# TODO#5 - Defining Variables to Hold Selected Voice and Localization
 
+# TODO#6 - Managing Outputs
 
-# TODO#4
-# Set available languages to English and Spanish only
-
-
-# TODO#5
-# Default speaker and language
-
-
-# TODO#6
-
-
-# TODO#7
-
+# TODO#7 - Implementing the Trim Function.
 
 # Main Speech Synthesis Function
 def generate_speech_with_timestamps(text, speaker, language):
@@ -29,17 +18,13 @@ def generate_speech_with_timestamps(text, speaker, language):
     output_path = "output/generated_speech.wav"
     start_time = time.time()
 
-    # TODO#8
+    # TODO#8 - Implementing the Main TTS Function
 
+    # TODO#9 - Managing Duration and Tracking Variables
 
-    # TODO#9
+    # TODO#10 - Extracting Audio Information
 
-
-    # TODO#10
-
-
-    # TODO#11
-
+    # TODO#11 - Return Audio Information
 
 # Waveform Function
 def generate_waveform():
@@ -92,41 +77,33 @@ def on_generate_click(text, speaker, language):
 # Gradio Interface Setup
 def setup_interface():
     with gr.Blocks() as app:
-        # TODO#12
-
+        # TODO#12 - Adding Title and Description
+        gr.Markdown("# 🗣️ Text-to-Speech GenAI with Coqui TTS")
+        gr.Markdown("Convert text to speech using Coqui TTS with support for different languages and speakers.")
         
         with gr.Row():
             with gr.Column():
-                # TODO#13
-                # Indent your code to match the indention of this comment!
-
-                with gr.Row():
-                    # Create the dropdown component for the voice selection
-                    speaker_dropdown = gr.Dropdown(choices=available_speakers, value=selected_speaker, label="Select Voice")
-                    # Create the radio button gropu for the localization selection
-                    language_radio = gr.Radio(choices=available_languages, value=selected_language, label="Select Localization")
+                # TODO#13 - Creating Text Input and Selection Options
 
             with gr.Column():
-                # TODO#14
-                # Indent your code to match the indention of this comment!
+                # TODO#14 - Displaying Data Information and Status
+
 
         with gr.Row():
             with gr.Column():
-                # TODO#15
-                # Indent your code to match the indention of this comment!
+                # TODO#15 - Adding Audio Output and "Generate Speech" Button
+
 
             with gr.Column():
-                # TODO#16
-                # Indent your code to match the indention of this comment!
+                # TODO#16 - Adding Waveform Display and "Generate Waveform" Button
 
-        # Map the function of the Generate Speech button
+
         generate_button.click(
             on_generate_click, 
             inputs=[text_input, speaker_dropdown, language_radio], 
             outputs=[audio_output, data_info_display, status_message, generate_waveform_button]
         )
 
-        # Map the function of the Generate Waveform button
         generate_waveform_button.click(
             generate_waveform, 
             outputs=[waveform_output, status_message]
@@ -134,4 +111,4 @@ def setup_interface():
 
     return app
 
-# TODO#17
+# TODO#17 - Launching the App
