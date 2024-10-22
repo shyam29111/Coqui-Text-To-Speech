@@ -98,11 +98,11 @@ def setup_interface():
 
         with gr.Row():
             with gr.Column():
-                # TODO#13 - Creating Text Input and Selection Options
+                # TODO#13 - Creating Text Input
 
 
                 with gr.Row():
-                    # TODO#14 - Creating Text Input and Selection Options
+                    # TODO#14 - Creating Voice and Localization Options
 
 
             with gr.Column():
