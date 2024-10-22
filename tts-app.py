@@ -78,8 +78,6 @@ def on_generate_click(text, speaker, language):
 def setup_interface():
     with gr.Blocks() as app:
         # TODO#12 - Adding Title and Description
-        gr.Markdown("# 🗣️ Text-to-Speech GenAI with Coqui TTS")
-        gr.Markdown("Convert text to speech using Coqui TTS with support for different languages and speakers.")
         
         with gr.Row():
             with gr.Column():
