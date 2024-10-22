@@ -28,34 +28,39 @@ def generate_speech_with_timestamps(text, speaker, language):
 
 # Waveform Function
 def generate_waveform():
+    # Initialize Global Variables and Input Validation
     global last_generated_audio, last_generated_text
 
+    # Check if a valid audio file exists
     if not last_generated_audio or not os.path.exists(last_generated_audio):
         return None, "No valid audio file found to generate waveform."
 
+    # Read Audio File and Create Time Axis
     samplerate, data = wavfile.read(last_generated_audio)
     time_axis = np.linspace(0, len(data) / samplerate, num=len(data))
 
-    # Modern waveform style with gradient color
+    # Plot the Waveform with Custom Styling
     fig, ax = plt.subplots(figsize=(8, 4), facecolor='#1E1E1E')  # Dark background
 
-    # Plot waveform with gradient
+    # Plot the Waveform with Custom Styling
     ax.plot(time_axis, data, color='cyan', alpha=0.8, linewidth=1.2)
 
     # Styling grid and axes for a modern look
-    ax.set_facecolor('#2E2E2E')  # Darker plot background
-    ax.grid(color='gray', linestyle='--', linewidth=0.5, alpha=0.5)
-    ax.spines['bottom'].set_color('white')
-    ax.spines['left'].set_color('white')
-    ax.tick_params(axis='x', colors='white')
-    ax.tick_params(axis='y', colors='white')
-    ax.set_xlabel("Time (seconds)", color='white')
-    ax.set_ylabel("Amplitude", color='white')
+    ax.set_facecolor('#2E2E2E')  # Set darker plot background
+    ax.grid(color='gray', linestyle='--', linewidth=0.5, alpha=0.5)  # Add grid lines
+    ax.spines['bottom'].set_color('white')  # Set bottom spine color to white
+    ax.spines['left'].set_color('white')  # Set left spine color to white
+    ax.tick_params(axis='x', colors='white')  # Set x-axis tick color
+    ax.tick_params(axis='y', colors='white')  # Set y-axis tick color
+    ax.set_xlabel("Time (seconds)", color='white')  # Label x-axis
+    ax.set_ylabel("Amplitude", color='white')  # Label y-axis
 
-    # Set the title with trimmed text
+    # Add a Title to the Plot
+    # Trim long text for display in title
     trimmed_text = trim_text(last_generated_text)
     ax.set_title(f"Waveform for text input: '{trimmed_text}'", color='white', fontsize=14)
 
+    # Save the waveform image
     waveform_image_path = "output/waveform.png"
     plt.savefig(waveform_image_path, transparent=True)
     plt.close()
@@ -63,7 +68,7 @@ def generate_waveform():
     return waveform_image_path, "Waveform generated successfully!"
 
 # Button Click Event Handler
-def on_generate_click(text, speaker, language):
+def generate_speech(text, speaker, language):
     if not text:
         return None, "Please enter some text to generate speech.", "", gr.update(interactive=False)
 
@@ -97,7 +102,7 @@ def setup_interface():
 
 
         generate_button.click(
-            on_generate_click, 
+            generate_speech, 
             inputs=[text_input, speaker_dropdown, language_radio], 
             outputs=[audio_output, data_info_display, status_message, generate_waveform_button]
         )
