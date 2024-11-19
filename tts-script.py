@@ -1,9 +1,23 @@
-# TODO#1 - Import the necessary libraries
+import warnings
+warnings.filterwarnings("ignore")
 
-# TODO#2: Load the TTS model
+from TTS.api import TTS
+import os
 
-# TODO#3 - Select the speaker and language
+model_name = TTS.list_models()[0]
+tts = TTS(model_name)
 
-# TODO#4 - Set output folder and input text
+selected_speaker = tts.speakers[0]
+selected_language = tts.languages[0]
 
-# TODO#5 Generate the speech and save it to a WAV file
+os.makedirs("output", exist_ok=True)
+text = "First, solve the problem. Then, write the code."
+
+tts.tts_to_file(
+    text=text,
+    speaker=selected_speaker,
+    language=selected_language,
+    file_path="output/output.wav"
+)
+
+print("TTS complete! Check the output folder for the audio file.")
